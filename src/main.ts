@@ -12,14 +12,14 @@ import { UploadResponse } from './deploygate/upload_response';
   try {
     const options = await parseInputs();
 
-    core.debug('the current inputs:');
-    core.debug(
-      JSON.stringify({
-        ...options,
-        apiToken: 'masked',
-        appOwnerName: 'masked',
-      }),
-    );
+//     core.debug('the current inputs:');
+//     core.debug(
+//       JSON.stringify({
+//         ...options,
+//         apiToken: 'masked',
+//         appOwnerName: 'masked',
+//       }),
+//     );
 
     const baseURL = `${process.env['DEPLOYGATE_API_ENDPOINT'] || 'https://deploygate.com'}/api/`;
 
@@ -37,13 +37,12 @@ import { UploadResponse } from './deploygate/upload_response';
       distribution: options.distribution,
     };
 
-    core.debug('upload options has been built:');
-    core.debug(JSON.stringify(uploadOptions));
+//     core.debug('upload options has been built:');
+//     core.debug(JSON.stringify(uploadOptions));
 
     const uploadResponse = await client.upload(options.appOwnerName, options.appFilePath, uploadOptions);
 
-    core.debug('got a response of upload api:');
-    core.info(JSON.stringify(uploadResponse));
+//     core.debug('got a response of upload api:');
 
     const tmpFile = tmp.fileSync({ prefix: 'deploygate-action-', postfix: '.json', keep: true });
 
@@ -59,7 +58,7 @@ import { UploadResponse } from './deploygate/upload_response';
     let isPinSuccessful = !options.pin;
 
     if (isUploadSuccessful) {
-      core.info('uploaded successfully');
+      core.info('uploaded successfully: ' + JSON.stringtify(outputs));
 
       const app = (uploadResponse as UploadResponse).results;
 
@@ -103,7 +102,7 @@ import { UploadResponse } from './deploygate/upload_response';
         core.debug('pin option is disabled');
       }
     }
-
+    core.info('START SET OUTPUT')
     for (const key of Object.keys(outputs)) {
       // round to null
       const value = (outputs as any)[key] || null; // eslint-disable-line @typescript-eslint/no-explicit-any
