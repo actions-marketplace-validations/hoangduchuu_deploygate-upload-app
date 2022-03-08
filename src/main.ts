@@ -65,6 +65,7 @@ import { UploadResponse } from './deploygate/upload_response';
 
       outputs = {
         ...outputs,
+        ...app,
         uploaded: true,
         package_name: app.package_name, // eslint-disable-line @typescript-eslint/camelcase
         download_url: app.file, // eslint-disable-line @typescript-eslint/camelcase
@@ -106,7 +107,7 @@ import { UploadResponse } from './deploygate/upload_response';
     for (const key of Object.keys(outputs)) {
       // round to null
       const value = (outputs as any)[key] || null; // eslint-disable-line @typescript-eslint/no-explicit-any
-      core.debug(`Output: ${key} => ${value}`);
+      core.info(`Output: ${key} => ${value}`);
       core.setOutput(key, value);
     }
 
