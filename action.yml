@@ -1,5 +1,5 @@
 name: This action uploads an application file to DeployGate
-author: Jumpei Matsuda
+author: Jumpei Matsuda, Minhchienwikipedia
 description: An action to upload an application file to DeployGate
 runs:
   using: 'node12'
@@ -62,5 +62,5 @@ outputs:
   pinned:
     description: True if the revision has been pinned, otherwise false.
 branding:
-  color: 'dark-gray'
+  color: 'gray-dark'
   icon: 'thumbs-up'
