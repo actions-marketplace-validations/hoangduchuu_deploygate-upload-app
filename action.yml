@@ -1,4 +1,4 @@
-name: This action uploads an application file to DeployGate
+name: deploygate-upload
 author: Jumpei Matsuda, Minhchienwikipedia
 description: An action to upload an application file to DeployGate
 runs:
