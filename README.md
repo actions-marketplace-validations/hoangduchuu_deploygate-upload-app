@@ -23,7 +23,7 @@ Add this action to steps.
 
 ```
 - name: Upload Deploygate
-        uses: minhchienwikipedia/deploygate-upload-app@master
+        uses: hoangduchuu/deploygate-upload-app@master
         with:
           app_owner_name: postpay
           api_token: ${{ secrets.DEPLOYGATE_API_TOKEN }}
