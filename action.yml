@@ -2,7 +2,7 @@ name: deploygate-upload-app
 author: Jumpei Matsuda, Minhchienwikipedia
 description: An action to upload an application file to DeployGate
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'
 inputs:
   api_token:
